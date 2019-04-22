@@ -2,6 +2,19 @@
 process.stdout.write('prompt > ');
 
 // The stdin 'data' event fires after a user types in a line
-const { pwdCmd } = require('./pwd');
+process.stdin.on('data', data => {
+  const cmd = data.toString().trim();
 
-pwdCmd();
+  if (cmd.toLowerCase() === 'pwd') {
+    pwdCmd();
+  } else if (cmd.toLowerCase() === 'ls') {
+    lsCmd();
+  } else {
+    process.stdout.write('You typed: ' + cmd);
+  }
+
+  process.stdout.write('\nprompt > ');
+});
+
+const { pwdCmd } = require('./pwd');
+const { lsCmd } = require('./ls');
