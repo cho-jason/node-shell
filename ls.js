@@ -1,7 +1,7 @@
 // 'files' will be an array of filename, like ['bash.js', 'pwd.js']
 const fs = require('fs');
 
-const lsCmd = () => {
+module.exports = function() {
   fs.readdir('./', 'utf8', (err, files) => {
     if (err) {
       throw err;
@@ -11,5 +11,3 @@ const lsCmd = () => {
     }
   });
 };
-
-module.exports = { lsCmd };

@@ -16,5 +16,5 @@ process.stdin.on('data', data => {
   process.stdout.write('\nprompt > ');
 });
 
-const { pwdCmd } = require('./pwd');
-const { lsCmd } = require('./ls');
+const pwdCmd = require('./pwd');
+const lsCmd = require('./ls');
